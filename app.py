@@ -458,7 +458,6 @@ def fetch_details(email):
 
 # Function to process user input and generate a chatbot response
 
-@observe()
 def chatbot_interface():
     st.title("E-Commerce Chatbot")
     
@@ -502,7 +501,7 @@ def chatbot_interface():
 
             try:
                 # Pass the history to the agent
-                response = agent_executor.invoke({"input": conversation_input}, config={"callbacks":[langfuse_handler]})
+                response = agent_executor.invoke({"input": conversation_input})
     
                 # Add the chatbot's response to the history
                 chatbot_response = response['output']
