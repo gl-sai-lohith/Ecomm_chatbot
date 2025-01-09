@@ -246,29 +246,31 @@ def rag(user_input: str) -> str:
 
 # Function to log actions
 def log_history(email: str,chat_history: list) -> None:
-    # Save the log to the file
-    with history_scheduler.lock:        
-        # Open the log file in append mode
-        with history_file.open("a") as f:
-            f.write(json.dumps({
-                "email": email,
-                "chat_history": chat_history,
-                "timestamp": str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-            }))
+    # # Save the log to the file
+    # with history_scheduler.lock:        
+    #     # Open the log file in append mode
+    #     with history_file.open("a") as f:
+    #         f.write(json.dumps({
+    #             "email": email,
+    #             "chat_history": chat_history,
+    #             "timestamp": str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    #         }))
+  pass
 
     #st.write("chat_recorded")
 
 
 def log_action(customer_id: str,task: str, details: str) -> None:
-    # Save the log to the file
-    with log_scheduler.lock:        
-        # Open the log file in append mode
-        with log_file.open("a") as f:
-            f.write(json.dumps({
-                "customer_id": customer_id,
-                "task": task,
-                "details": details
-            }))
+    # # Save the log to the file
+    # with log_scheduler.lock:        
+    #     # Open the log file in append mode
+    #     with log_file.open("a") as f:
+    #         f.write(json.dumps({
+    #             "customer_id": customer_id,
+    #             "task": task,
+    #             "details": details
+    #         }))
+  pass
 
 
 @tool
