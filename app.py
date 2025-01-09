@@ -22,8 +22,9 @@ from huggingface_hub import CommitScheduler
 from pathlib import Path
 
 
-from langfuse import Langfuse
+# from langfuse import Langfuse
 from dotenv import load_dotenv
+import weave
 
 # Load environment variables from .env file
 load_dotenv()
@@ -49,16 +50,7 @@ db = SQLDatabase.from_uri(f"sqlite:///{db_loc}")
 # Retrieve the schema information of the database tables
 database_schema = db.get_table_info()
 
-
-from langfuse.callback import CallbackHandler
-
-
-langfuse_handler = CallbackHandler(
-  secret_key=os.environ["LF_SECRET_KEY"],
-  public_key=os.environ["LF_PUBLIC_KEY"],
-  host="https://cloud.langfuse.com"
-)
-
+weave.init('chatbot')
 #=================================SQL_AGENT=====================================#
 
 # Define the system message for the agent, including instructions and available tables
