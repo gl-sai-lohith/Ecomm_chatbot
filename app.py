@@ -63,34 +63,6 @@ langfuse_handler = CallbackHandler(
 )
 
 
-
-#=================================Setup Logging=====================================#
-
-
-log_file = Path("logs/") / f"data_{uuid.uuid4()}.json"
-log_folder = log_file.parent
-
-log_scheduler = CommitScheduler(
-    repo_id="chatbot-logs", #Dataset name where we want to save the logs.
-    repo_type="dataset",
-    folder_path=log_folder,
-    path_in_repo="data",
-    every=5 # Saves data every x minute
-)
-
-
-
-history_file = Path("history/")/f"data_{uuid.uuid4()}.json"
-history_folder = history_file.parent
-
-history_scheduler = CommitScheduler(
-    repo_id="chatbot-history", #Dataset name where we want to save the logs.
-    repo_type="dataset",
-    folder_path=history_folder,
-    path_in_repo="data",
-    every=5 # Saves data every x minute
-)
-
 #=================================SQL_AGENT=====================================#
 
 # Define the system message for the agent, including instructions and available tables
