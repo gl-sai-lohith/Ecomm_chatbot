@@ -9,8 +9,6 @@ import sqlite3
 
 from langchain_community.embeddings.sentence_transformer import SentenceTransformerEmbeddings
 from langchain_community.vectorstores import Chroma
-from langfuse.decorators import observe
-from langfuse.openai import openai # OpenAI integration
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.utilities.sql_database import SQLDatabase
@@ -55,13 +53,11 @@ database_schema = db.get_table_info()
 from langfuse.callback import CallbackHandler
 
 
-
 langfuse_handler = CallbackHandler(
   secret_key=os.environ["LF_SECRET_KEY"],
   public_key=os.environ["LF_PUBLIC_KEY"],
   host="https://cloud.langfuse.com"
 )
-
 
 #=================================SQL_AGENT=====================================#
 
@@ -245,32 +241,20 @@ def rag(user_input: str) -> str:
 #=================================== Other TOOLS======================================#
 
 # Function to log actions
-def log_history(email: str,chat_history: list) -> None:
-    # # Save the log to the file
-    # with history_scheduler.lock:        
-    #     # Open the log file in append mode
-    #     with history_file.open("a") as f:
-    #         f.write(json.dumps({
-    #             "email": email,
-    #             "chat_history": chat_history,
-    #             "timestamp": str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    #         }))
-  pass
+def log_history(email: str,chat_history: list) -> str:
 
-    #st.write("chat_recorded")
+    ## "dummy function"
+
+    return "logged"
 
 
-def log_action(customer_id: str,task: str, details: str) -> None:
-    # # Save the log to the file
-    # with log_scheduler.lock:        
-    #     # Open the log file in append mode
-    #     with log_file.open("a") as f:
-    #         f.write(json.dumps({
-    #             "customer_id": customer_id,
-    #             "task": task,
-    #             "details": details
-    #         }))
-  pass
+
+
+def log_action(customer_id: str,task: str, details: str) -> str:
+
+    ## "dummy function"
+
+    return "logged"
 
 
 @tool
