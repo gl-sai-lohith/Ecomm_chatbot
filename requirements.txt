@@ -1,0 +1,9 @@
+streamlit==1.40.1
+langchain-core==0.3.21
+langchain-community==0.3.8
+langchain==0.3.8
+langchain-openai==0.2.9
+huggingface-hub==0.26.2
+chromadb==0.5.23
+sentence-transformers==3.3.1
+langfuse==2.57.5
