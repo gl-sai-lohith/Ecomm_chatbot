@@ -21,8 +21,6 @@ from openai import AzureOpenAI
 from huggingface_hub import CommitScheduler
 from pathlib import Path
 
-
-# from langfuse import Langfuse
 from dotenv import load_dotenv
 import weave
 
@@ -174,7 +172,6 @@ vector_store = Chroma(
     collection_name=collection_name,
     persist_directory=persisted_vectordb_location,
     embedding_function=embedding_model
-
 )
 
 retriever = vector_store.as_retriever(
