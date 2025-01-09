@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: support_chatbot
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./policy_docs:/app/policy_docs  # Mount the policy_docs directory as read-onl
+      - ./ecomm.db:/app/ecomm.db
